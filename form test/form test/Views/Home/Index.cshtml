@@ -1,0 +1,52 @@
+﻿@model FomModels;
+@if (!string.IsNullOrWhiteSpace(ViewBag.er))
+{
+    <p class="alert alert-danger p-2">@ViewBag.er</p>
+}
+@if (!string.IsNullOrWhiteSpace(ViewBag.sec))
+{
+    <p class="alert alert-danger p-2">@ViewBag.sec</p>
+}
+<form class="row g-3" method="POST" asp-action="Index">
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="pasword" class="form-label">Password</label>
+        <input type="password" class="form-control" asp-for="pasword">
+        <span asp-validation-for="pasword" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <label asp-for="Adress" class="form-label">Address</label>
+        <input type="text" class="form-control" asp-for="Adress" placeholder="1234 Main St">
+        <span asp-validation-for="Adress" class="text-danger"></span>
+    </div>
+    <div class="col-12">
+        <label asp-for="secondAddress" class="form-label">Address 2</label>
+        <input type="text" class="form-control" asp-for="secondAddress" placeholder="Apartment, studio, or floor">
+        <span asp-validation-for="secondAddress" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="city" class="form-label">City</label>
+        <input type="text" class="form-control" asp-for="city">
+        <span asp-validation-for="city" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="state" class="form-label">State</label>
+        <select asp-for="state" class="form-select">
+            <option selected value="kosesher">ایران</option>
+            <option value="basice">افغانستان</option>
+            <option value="khobe">ارمنستان</option>
+            <option value="dostdashtani">اتریش</option>
+
+        </select>
+
+    </div>
+    
+    
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+</form>

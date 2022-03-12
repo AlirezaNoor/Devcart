@@ -95,12 +95,9 @@
                     <span asp-validation-for="Email"></span>
                 </div>
                 <div class="form-group col-12">
-                    <select id="services" class="custom-select" asp-for="service">
-                        <option selected>سرویس مورد نظر خود را انتخاب کنید...</option>
-                        <option value="basic">نقره ای</option>
-                        <option value="standard">طلایی</option>
-                        <option value="premium">پلاتین</option>
-                        <option value="not sure">الماس</option>
+                    <select id="services" class="custom-select" asp-for="service" asp-items="Model.services">
+                        <option value="0" selected>سرویس مورد نظر خود را انتخاب کنید...</option>
+
                     </select>
                 </div>
                 <div class="form-group col-12">

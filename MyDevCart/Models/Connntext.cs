@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MyDevCart.Models
 {
@@ -12,5 +13,6 @@ namespace MyDevCart.Models
         public string Email { get; set; }
         public string service { get; set; }
         public string message { get; set; }
+        public SelectList services { get; set; }
     }
 }

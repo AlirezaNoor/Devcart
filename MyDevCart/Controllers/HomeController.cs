@@ -7,17 +7,37 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MyDevCart.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        readonly private List<Servecces> _mysevice = new List<Servecces>()
         {
-            _logger = logger;
-        }
+           new  Servecces()
+           {
+                 id = 1,
+                 name = "نقرره ایی"
+           },
+           new  Servecces()
+           {
+               id = 2,
+               name = "طلا ایی"
+           },
+           new  Servecces()
+           {
+               id = 3,
+               name = "پیلاطین"
+           },    new  Servecces()
+           {
+               id = 4,
+               name = "الماس"
+           },
+        };
+
+        
 
         public IActionResult Index()
         {
@@ -27,21 +47,32 @@ namespace MyDevCart.Controllers
         [HttpGet]
         public IActionResult Conntext()
         {
-            var model = new Connntext();
+            var model = new Connntext()
+            {
+                services = new SelectList(_mysevice,"id","name")
+            };
             return View(model);
         }
 
         [HttpPost]
         public IActionResult Conntext(Connntext con)
-        {
-            if (!ModelState.IsValid)
+        { 
+            con.services = new SelectList(_mysevice, "id", "name") ;
+            if (!ModelState.IsValid) 
+            
             {
+               
                 ViewBag.err = "این یک پیغام اشتباه است";
+                
                 return View(con);
             }
-
+            ModelState.Clear();
+            var model = new Connntext()
+            {
+                services = new SelectList(_mysevice, "id", "name")
+            };
             ViewBag.secss = "افرین پیام ارسال شد";
-            return View();
+            return View(model);
 
 
         }
