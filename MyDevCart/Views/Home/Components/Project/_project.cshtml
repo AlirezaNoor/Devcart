@@ -9,33 +9,33 @@
     <div class="container">
         <h2 class="section-title font-weight-bold mb-5">خاص ترین پروژه ها</h2>
         <div class="row">
-@foreach (var project in Model)
-{
-    <div class="col-md-6 mb-5">
-        <div class="card project-card">
-            <div class="row no-gutters">
-                <div class="col-lg-4 card-img-holder">
-                    <img src="~/assets/images/project/@project.Image" class="card-img" alt="image">
-                </div>
-                <div class="col-lg-8">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="project.html" class="theme-link">
-                                @project.Id::@project.Name
-                            </a>
-                        </h5>
-                        <p class="card-text">
-                          @project.discriptionn
-                        </p>
-                        <p class="card-text">
-                            <small class="text-muted">مشتری: @project.client</small>
-                        </p>
+            @foreach (var project in Model)
+            {
+                <div class="col-md-6 mb-5">
+                    <div class="card project-card">
+                        <div class="row no-gutters">
+                            <div class="col-lg-4 card-img-holder">
+                                <img src="~/assets/images/project/@project.Image" class="card-img" alt="image">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a  class="theme-link" asp-controller="Home" asp-action="Dtails" asp-route-id="@project.Id">
+                                            @project.Id::@project.Name
+                                        </a>
+                                    </h5>
+                                    <p class="card-text">
+                                        @project.discriptionn
+                                    </p>
+                                    <p class="card-text">
+                                        <small class="text-muted">مشتری: @project.client</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-}
+            }
 
         </div>
     </div>

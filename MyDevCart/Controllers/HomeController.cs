@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MyDevCart.data;
 
 namespace MyDevCart.Controllers
 {
@@ -45,7 +46,7 @@ namespace MyDevCart.Controllers
         }
 
         [HttpGet]
-        public IActionResult Conntext()
+        public IActionResult Conntext(string ali)
         {
             var model = new Connntext()
             {
@@ -75,6 +76,12 @@ namespace MyDevCart.Controllers
             return View(model);
 
 
+        }
+
+        public IActionResult Dtails(long id)
+        {
+            var mydata = store.getby(id);
+            return View(mydata);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
